@@ -4,6 +4,7 @@ A CLI tool to register issues in redmine at specified intervals.
 ## Installation
 The Python package manager [rye](https://github.com/mitsuhiko/rye) is used for this repository.
 Clone this repository and run the following command.
+If you do not have rye installed, install it first.
 
 ```shell
 rye sync
