@@ -1,6 +1,14 @@
 # redmine-issue-bulk-creator
 A CLI tool to register issues in redmine at specified intervals.
 
+## Installation
+The Python package manager [rye](https://github.com/mitsuhiko/rye) is used for this repository.
+Clone this repository and run the following command.
+
+```shell
+rye sync
+```
+
 ## Configuration
 The redmine URL and API key are required for execution.
 Create an .env file in the project root and register the URL and API key.
