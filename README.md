@@ -25,3 +25,20 @@ echo "REDMINE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxx" >> .env
 rye run src/main.py
 ```
 A few questions will be asked, and at the end issues will be registered in redmine.
+
+## Example
+```shell
+$ rye run python src/main.py
+? What is the issue subject? test
+? When is the start date? (write in a format like 1970-01-01) 2023-01-01
+? How many days is the interval? 5
+? How many days until the deadline? 2
+? Which project? project-name
+? How many issues do you want to create? 5
+Created: \#959 test  # 2023-01-01 ~ 2023-01-02
+Created: \#960 test  # 2023-01-06 ~ 2023-01-07
+Created: \#961 test  # 2023-01-11 ~ 2023-01-12
+Created: \#962 test  # 2023-01-16 ~ 2023-01-17
+Created: \#963 test  # 2023-01-21 ~ 2023-01-22
+Created all issues.
+```

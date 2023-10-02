@@ -64,7 +64,7 @@ def create_issue_params(inputs):
 
     for i in range(inputs.count):
         start_date = inputs.start_date + timedelta(days=inputs.interval_days * i)
-        due_date = start_date + timedelta(days=inputs.days_until_deadline)
+        due_date = start_date + timedelta(days=(inputs.days_until_deadline - 1))
         params.append({
             'subject': inputs.issue_subject,
             'start_date': start_date,
