@@ -35,10 +35,10 @@ $ rye run python src/main.py
 ? How many days until the deadline? 2
 ? Which project? project-name
 ? How many issues do you want to create? 5
-Created: \#959 test  # 2023-01-01 ~ 2023-01-02
-Created: \#960 test  # 2023-01-06 ~ 2023-01-07
-Created: \#961 test  # 2023-01-11 ~ 2023-01-12
-Created: \#962 test  # 2023-01-16 ~ 2023-01-17
-Created: \#963 test  # 2023-01-21 ~ 2023-01-22
+Created: #959 test  # 2023-01-01 ~ 2023-01-02
+Created: #960 test  # 2023-01-06 ~ 2023-01-07
+Created: #961 test  # 2023-01-11 ~ 2023-01-12
+Created: #962 test  # 2023-01-16 ~ 2023-01-17
+Created: #963 test  # 2023-01-21 ~ 2023-01-22
 Created all issues.
 ```
