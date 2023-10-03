@@ -22,7 +22,7 @@ echo "REDMINE_API_KEY=xxxxxxxxxxxxxxxxxxxxxxx" >> .env
 
 ## Usage
 ```shell
-rye run src/main.py
+rye run python src/main.py
 ```
 A few questions will be asked, and at the end issues will be registered in redmine.
 
