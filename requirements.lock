@@ -5,15 +5,31 @@
 #   pre: false
 #   features: []
 #   all-features: false
+#   with-sources: false
+#   generate-hashes: false
 
 -e file:.
 certifi==2023.7.22
+    # via requests
 charset-normalizer==3.3.0
+    # via requests
 idna==3.4
+    # via requests
 prompt-toolkit==3.0.36
+    # via questionary
+python-dateutil==2.9.0.post0
+    # via redmine-issue-bulk-creator
 python-dotenv==1.0.0
+    # via redmine-issue-bulk-creator
 python-redmine==2.4.0
+    # via redmine-issue-bulk-creator
 questionary==2.0.1
+    # via redmine-issue-bulk-creator
 requests==2.31.0
+    # via python-redmine
+six==1.16.0
+    # via python-dateutil
 urllib3==2.0.5
+    # via requests
 wcwidth==0.2.8
+    # via prompt-toolkit

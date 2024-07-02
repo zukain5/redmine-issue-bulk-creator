@@ -3,15 +3,17 @@ from datetime import datetime, timedelta
 from os.path import dirname, join
 
 import questionary
+from dateutil.relativedelta import relativedelta
 from dotenv import load_dotenv
 from redminelib import Redmine
 
 
 class Inputs:
-    def __init__(self, issue_subject, start_date, interval_days, days_until_deadline, project, count):
+    def __init__(self, issue_subject, start_date, interval_type, interval, days_until_deadline, project, count):
         self.issue_subject = issue_subject
         self.start_date = start_date
-        self.interval_days = interval_days
+        self.interval_type = interval_type
+        self.interval = interval
         self.days_until_deadline = days_until_deadline
         self.project = project
         self.count = count
@@ -29,8 +31,20 @@ def question(redmine):
         print("[Error] Please write in a format like 1970-01-01")
         exit()
 
+    interval_type = questionary.select(
+        "Interval type?",
+        choices=[
+            questionary.Choice("Daily", value="Daily"),
+            questionary.Choice("Monthly", value="Monthly"),
+        ]
+    ).ask()
+
     try:
-        interval_days = int(questionary.text("How many days is the interval?").ask())
+        interval = (
+            int(questionary.text("How many days is the interval?").ask())
+            if interval_type == "Daily"
+            else int(questionary.text("How many months is the interval?").ask())
+        )
     except ValueError:
         print("[Error] Please input a number")
         exit()
@@ -56,14 +70,18 @@ def question(redmine):
         print("[Error] Please input a number")
         exit()
 
-    return Inputs(issue_subject, start_date, interval_days, days_until_deadline, project, count)
+    return Inputs(issue_subject, start_date, interval_type, interval, days_until_deadline, project, count)
 
 
 def create_issue_params(inputs):
     params = []
 
     for i in range(inputs.count):
-        start_date = inputs.start_date + timedelta(days=inputs.interval_days * i)
+        start_date = inputs.start_date + (
+            relativedelta(days=inputs.interval * i)
+            if type == "Daily"
+            else relativedelta(months=inputs.interval * i)
+        )
         due_date = start_date + timedelta(days=(inputs.days_until_deadline - 1))
         params.append({
             'subject': inputs.issue_subject,
