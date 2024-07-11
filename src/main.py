@@ -79,7 +79,7 @@ def create_issue_params(inputs):
     for i in range(inputs.count):
         start_date = inputs.start_date + (
             relativedelta(days=inputs.interval * i)
-            if type == "Daily"
+            if inputs.interval_type == "Daily"
             else relativedelta(months=inputs.interval * i)
         )
         due_date = start_date + timedelta(days=(inputs.days_until_deadline - 1))
